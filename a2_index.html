@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Form</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style>
+		.form-check-label {
+			padding-top: calc(.5rem - 1px * 2);
+			padding-bottom: calc(.5rem - 1px * 2);
+			margin-bottom: 0;
+		}
+      #submit{margin-left: 500px; margin-top: 10px;}
+
+
+
+
+	</style>
+</head>
+<body>
+
+
+  <div class="container">
+
+		<div class="row">
+			<h1 class="col-12 mt-4 mb-4">Search Form</h1>
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+
+
+			<div class="form-group row">
+				<label for="name-id" class="col-sm-3 col-form-label text-sm-right">Search:</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="search" name="search">
+				</div>
+
+        <button id="submit"> Submit </button>
+
+        <template id="title-template">
+				{{#each response.data.children}}
+        <div class="title">
+          <h1>{{data.title}} </h1>   </div>
+            <div class="score">  <p> Score:{{data.score}} </p>   </div>
+        <div class="sub">   <p> subreddit_subscribers:{{format data.subreddit_subscribers}} </p>   </div>
+
+		<div class="number">  {{#if data.num_comment}} <p> Number of Comments :{{format data.num_comment}} </p>
+     {{else}}	<p>No Comment</p> {{/if}} </div>
+
+		 		{{/each}}
+	 			</template>
+
+
+
+
+	</div> <!-- .container -->
+
+			    <div id="results"> </div>
+
+	<script src="jquery-3.3.1.js"></script>
+	<script src="moment.js"></script>
+	<script src="handlebars-v4.0.11.js"></script>
+  <script src="a2.js"></script>
+</body>
+</html>
